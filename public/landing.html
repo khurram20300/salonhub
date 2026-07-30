@@ -1,125 +1,294 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SalonHub — Luxury Grooming & Salon Booking App Template</title>
+  <title>SalonHub — Luxury Grooming & Salon Booking React 19 Template</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  
   <style>
-    body { font-family: 'Poppins', sans-serif; background-color: #14120e; color: #f6ece1; }
+    :root {
+      --gold-primary: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-dark: #aa7c11;
+      --bg-dark: #0a0908;
+      --card-bg: #14120e;
+      --card-border: #2a2318;
+    }
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      background-color: var(--bg-dark); 
+      color: #f6ece1; 
+      overflow-x: hidden;
+    }
     .font-serif-title { font-family: 'Playfair Display', serif; }
-    .gold-gradient { background: linear-gradient(135deg, #c89b3c 0%, #7b5900 100%); }
-    .gold-text { color: #c89b3c; }
-    .gold-border { border-color: #342b1f; }
+    
+    /* Luxury Gold Gradients & Effects */
+    .gold-gradient { background: linear-gradient(135deg, #e6c666 0%, #d4af37 40%, #996515 100%); }
+    .gold-gradient-hover:hover { background: linear-gradient(135deg, #f3e5ab 0%, #e6c666 50%, #b8860b 100%); }
+    .gold-text { 
+      background: linear-gradient(135deg, #fff 0%, #f3e5ab 40%, #d4af37 80%, #aa7c11 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-glow {
+      box-shadow: 0 0 35px rgba(212, 175, 55, 0.25);
+    }
+    .glass-card {
+      background: rgba(20, 18, 14, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+    }
+    .glass-card:hover {
+      border-color: rgba(212, 175, 55, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.15);
+    }
+    
+    /* Keyframe Animations */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.08); }
+    }
+    .animate-pulse-glow { animation: pulseGlow 4s infinite ease-in-out; }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
   </style>
 </head>
-<body class="bg-[#14120e] text-[#f6ece1] antialiased selection:bg-[#c89b3c] selection:text-[#14120e]">
+<body class="bg-[#0a0908] text-[#f6ece1] antialiased selection:bg-[#d4af37] selection:text-[#0a0908]">
 
   <!-- PROMO DISCOUNT TOP ANNOUNCEMENT BANNER -->
-  <div class="bg-gradient-to-r from-[#7b5900] via-[#c89b3c] to-[#7b5900] text-white text-xs sm:text-sm font-semibold py-2.5 px-4 text-center shadow-md border-b border-[#c89b3c]/30 flex items-center justify-center gap-2">
-    <span>🔥 <strong>LIMITED TIME LAUNCH SALE:</strong> Get 40% OFF SalonHub! Regular <span class="line-through opacity-80">$40</span> — Today Only <strong>$24</strong></span>
+  <div class="bg-gradient-to-r from-[#805807] via-[#d4af37] to-[#805807] text-white text-xs sm:text-sm font-bold py-3 px-4 text-center shadow-2xl border-b border-[#d4af37]/40 flex items-center justify-center gap-3 relative z-50">
+    <span class="inline-flex items-center gap-2">
+      <span class="animate-bounce text-base">🔥</span> 
+      <span class="uppercase tracking-wide font-extrabold text-black bg-white px-2 py-0.5 rounded text-[11px]">Limited Offer</span>
+      <span>Get 40% OFF SalonHub React Kit! Regular <span class="line-through opacity-75 font-normal">$40</span> — Launch Special <strong class="text-white text-base font-black">$24</strong></span>
+    </span>
   </div>
 
+  <!-- NAVIGATION BAR -->
+  <nav class="sticky top-0 z-40 glass-card border-b border-[#2a2318] px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center text-black font-extrabold text-xl shadow-lg">👑</div>
+        <span class="font-serif-title text-2xl font-bold text-white tracking-wide">Salon<span class="gold-text font-sans font-black">Hub</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#a69888]">
+        <a href="#demo" class="hover:text-[#d4af37] transition-colors">Live Showcase</a>
+        <a href="#screens" class="hover:text-[#d4af37] transition-colors">45+ Screens</a>
+        <a href="#admin" class="hover:text-[#d4af37] transition-colors">Royal Admin</a>
+        <a href="#pricing" class="hover:text-[#d4af37] transition-colors">Pricing</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="/" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold border border-[#d4af37]/50 text-white hover:bg-[#d4af37]/10 transition-all">
+          <i class="fa-solid fa-mobile-screen text-[#d4af37]"></i> Live App
+        </a>
+        <a href="#pricing" class="px-6 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider text-black gold-gradient shadow-lg hover:scale-105 transition-all">
+          Get Template — $24
+        </a>
+      </div>
+    </div>
+  </nav>
+
   <!-- HERO SECTION -->
-  <header class="relative overflow-hidden pt-16 pb-16 px-4 text-center border-b border-[#342b1f] bg-gradient-to-b from-[#342817]/40 via-[#14120e] to-[#14120e]">
-    <div class="max-w-4xl mx-auto">
-      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase text-white gold-gradient shadow-lg mb-6">
-        React 19 + TypeScript + Tailwind CSS
-      </span>
-      <h1 class="font-serif-title text-4xl sm:text-6xl font-bold text-white tracking-tight mb-4" data-gumroad-field="name">
-        SalonHub — Luxury Grooming & Salon Booking React Template
+  <header class="relative overflow-hidden pt-20 pb-24 px-4 text-center">
+    <!-- Glow Backdrops -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#d4af37]/10 rounded-full blur-[140px] pointer-events-none animate-pulse-glow"></div>
+    <div class="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-[#996515]/15 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-[#f3e5ab] bg-[#2a2318]/80 border border-[#d4af37]/40 shadow-xl mb-8">
+        <span class="w-2 h-2 rounded-full bg-[#d4af37] animate-ping"></span>
+        React 19 + TypeScript + Tailwind CSS v4 + Admin Suite
+      </div>
+
+      <h1 class="font-serif-title text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+        The Ultimate Luxury Salon & Spa <br/>
+        <span class="gold-text">React 19 Booking Platform</span>
       </h1>
-      <p class="text-lg sm:text-xl text-[#a69888] max-w-2xl mx-auto mb-8 font-light" data-gumroad-field="description">
-        Ultra-premium mobile web app template for luxury salons, barbershops & spas with interactive device simulator & Royal Admin Suite.
+
+      <p class="text-lg sm:text-2xl text-[#a69888] max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+        Ultra-premium UI Kit featuring <strong class="text-white">45+ interactive screens</strong>, Barber Portfolio, Real-time Slot Picker, Financial Analytics & Royal Admin Management Suite.
       </p>
       
-      <!-- CTA BUTTONS (LIVE DEMO + GUMROAD BUY) -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto">
-        <a href="/" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-full font-bold text-base text-white border-2 border-[#c89b3c] hover:bg-[#c89b3c]/10 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-lg">
-          <span>📱 Explore Live Demo</span>
+      <!-- HERO ACTION BUTTONS -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-5 max-w-xl mx-auto mb-16">
+        <a href="/" target="_blank" class="w-full sm:w-auto px-9 py-4 rounded-full font-extrabold text-base text-white border-2 border-[#d4af37] hover:bg-[#d4af37]/15 active:scale-95 transition-all duration-200 flex items-center justify-center gap-3 cursor-pointer shadow-xl">
+          <i class="fa-solid fa-play text-[#d4af37]"></i>
+          <span>Interactive Live Simulator</span>
         </a>
-        <a data-gumroad-action="buy" href="https://gumroad.com" target="_blank" class="w-full sm:w-auto px-10 py-4 rounded-full font-bold text-base text-white gold-gradient shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer">
-          <span>Buy Now on Gumroad</span>
-          <span class="bg-black/20 px-2.5 py-0.5 rounded-full text-xs font-extrabold text-white">
-            <span class="line-through opacity-70 text-[11px] font-normal mr-1">$40</span>$24
-          </span>
+        <a href="#pricing" class="w-full sm:w-auto px-10 py-4 rounded-full font-extrabold text-base text-black gold-gradient gold-glow hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-3 cursor-pointer">
+          <i class="fa-solid fa-[#0a0908] fa-download"></i>
+          <span>Get Source Code — $24</span>
+          <span class="bg-black/25 px-2.5 py-0.5 rounded-full text-xs font-bold text-white line-through opacity-80">$40</span>
         </a>
+      </div>
+
+      <!-- MAIN HERO SHOWCASE IMAGE FRAME -->
+      <div id="demo" class="relative max-w-5xl mx-auto rounded-3xl p-3 bg-gradient-to-b from-[#d4af37]/40 via-[#2a2318]/40 to-transparent border border-[#d4af37]/30 shadow-2xl animate-float">
+        <div class="overflow-hidden rounded-2xl border border-[#2a2318] bg-[#14120e]">
+          <img src="/assets/gumroad_cover_1280x720_1785403233759.png" alt="SalonHub Luxury Showcase" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-500" />
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- FEATURES GRID -->
-  <section class="max-w-6xl mx-auto px-4 py-16">
-    <div class="text-center mb-12">
-      <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-white mb-3">Why Choose SalonHub?</h2>
-      <p class="text-[#a69888] max-w-xl mx-auto">Designed for developers, agencies, and entrepreneurs who want a high-end salon app platform.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-[#1f1b14] border border-[#342b1f] p-8 rounded-2xl">
-        <div class="w-12 h-12 rounded-full bg-[#342817] flex items-center justify-center text-[#c89b3c] font-bold text-xl mb-4">📱</div>
-        <h3 class="font-serif-title text-2xl font-bold text-[#c89b3c] mb-2">45+ Interactive Screens</h3>
-        <p class="text-[#a69888] text-sm leading-relaxed">
-          Complete client booking journey including Onboarding, Salon Details, Barber Portfolio, Time Slot Picker, Confirmation, Chat, Trend Feed, Favorites & User Profile.
-        </p>
+  <!-- KEY METRICS STATS BAR -->
+  <section class="border-y border-[#2a2318] bg-[#14120e]/60 backdrop-blur-md py-10 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="p-4">
+        <div class="font-serif-title text-4xl sm:text-5xl font-extrabold gold-text mb-1">45+</div>
+        <div class="text-xs uppercase tracking-widest text-[#a69888] font-semibold">Interactive Screens</div>
       </div>
-
-      <div class="bg-[#1f1b14] border border-[#342b1f] p-8 rounded-2xl">
-        <div class="w-12 h-12 rounded-full bg-[#342817] flex items-center justify-center text-[#c89b3c] font-bold text-xl mb-4">👑</div>
-        <h3 class="font-serif-title text-2xl font-bold text-[#c89b3c] mb-2">Royal Admin Suite</h3>
-        <p class="text-[#a69888] text-sm leading-relaxed">
-          Full management suite included: Appointments Calendar, Client CRM Dossier, Stock Inventory, Financial Reports, Payouts, Stylist KPIs & Security Audit Logs.
-        </p>
+      <div class="p-4">
+        <div class="font-serif-title text-4xl sm:text-5xl font-extrabold gold-text mb-1">100%</div>
+        <div class="text-xs uppercase tracking-widest text-[#a69888] font-semibold">Production Ready</div>
       </div>
-
-      <div class="bg-[#1f1b14] border border-[#342b1f] p-8 rounded-2xl">
-        <div class="w-12 h-12 rounded-full bg-[#342817] flex items-center justify-center text-[#c89b3c] font-bold text-xl mb-4">⚡</div>
-        <h3 class="font-serif-title text-2xl font-bold text-[#c89b3c] mb-2">Modern Tech Stack</h3>
-        <p class="text-[#a69888] text-sm leading-relaxed">
-          Built with React 19, TypeScript ~5.8, Tailwind CSS v4, and Vite 6. 100% clean zero-error production build (`npm run build`).
-        </p>
+      <div class="p-4">
+        <div class="font-serif-title text-4xl sm:text-5xl font-extrabold gold-text mb-1">React 19</div>
+        <div class="text-xs uppercase tracking-widest text-[#a69888] font-semibold">TypeScript & Vite 6</div>
+      </div>
+      <div class="p-4">
+        <div class="font-serif-title text-4xl sm:text-5xl font-extrabold gold-text mb-1">2-in-1</div>
+        <div class="text-xs uppercase tracking-widest text-[#a69888] font-semibold">Client App + Royal Admin</div>
       </div>
     </div>
   </section>
 
-  <!-- PRICING BOX WITH PROMOTIONAL DISCOUNT BANNER -->
-  <section class="max-w-3xl mx-auto px-4 pb-20">
-    <div class="bg-gradient-to-b from-[#1f1b14] to-[#14120e] border-2 border-[#c89b3c] rounded-3xl p-8 sm:p-12 text-center shadow-2xl relative overflow-hidden">
-      
-      <!-- SALE BADGE RIBBON -->
-      <div class="bg-[#c89b3c] text-[#14120e] font-extrabold text-xs tracking-widest uppercase py-1 px-10 inline-block rounded-full mb-4 shadow-md">
-        🔥 Special Launch Discount — Save $16
+  <!-- CLIENT BOOKING FLOW & SCREEN SHOWCASE -->
+  <section id="screens" class="max-w-7xl mx-auto px-6 py-24">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-[#d4af37] text-xs font-extrabold tracking-widest uppercase mb-3 block">Complete Client Experience</span>
+      <h2 class="font-serif-title text-4xl sm:text-5xl font-extrabold text-white mb-4">Masterpiece Design & User Flow</h2>
+      <p class="text-[#a69888] text-base leading-relaxed">From luxurious onboarding to artisan portfolios and seamless checkout, every pixel is crafted for luxury conversion.</p>
+    </div>
+
+    <!-- SHOWCASE CARDS GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="glass-card rounded-3xl p-6 transition-all duration-300">
+        <div class="overflow-hidden rounded-2xl mb-6 border border-[#2a2318]">
+          <img src="/assets/screenshot_01_client_flow_1785402336196.png" alt="Client Booking Flow" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500" />
+        </div>
+        <h3 class="font-serif-title text-2xl font-bold text-white mb-2">Luxury Client Booking Flow</h3>
+        <p class="text-[#a69888] text-sm leading-relaxed">Interactive time slot selection, service customizer, master artisan profiles, real-time total calculator, and gift voucher application.</p>
       </div>
 
-      <h3 class="font-serif-title text-3xl sm:text-4xl font-bold text-white mb-2">Get Instant Source Access</h3>
-      <p class="text-[#a69888] text-sm mb-6">Complete source code, graphics bundle, and full HTML documentation.</p>
+      <div class="glass-card rounded-3xl p-6 transition-all duration-300">
+        <div class="overflow-hidden rounded-2xl mb-6 border border-[#2a2318]">
+          <img src="/assets/screenshot_03_discovery_social_1785402387597.png" alt="Social Feed & Discovery" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500" />
+        </div>
+        <h3 class="font-serif-title text-2xl font-bold text-white mb-2">Discovery & Style Feed</h3>
+        <p class="text-[#a69888] text-sm leading-relaxed">Grooming trend gallery, client favorite bookmarks, interactive location maps, barber ratings, and direct live chat.</p>
+      </div>
+    </div>
+  </section>
 
-      <!-- PROMOTIONAL PRICING DISPLAY -->
-      <div class="flex items-center justify-center gap-3 my-4">
-        <span class="text-2xl font-semibold text-[#a69888] line-through">$40</span>
-        <div class="text-5xl font-extrabold text-[#c89b3c]">
+  <!-- ROYAL ADMIN SUITE SHOWCASE -->
+  <section id="admin" class="relative bg-gradient-to-b from-[#14120e] via-[#0a0908] to-[#14120e] border-y border-[#2a2318] py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5">
+          <span class="text-[#d4af37] text-xs font-extrabold tracking-widest uppercase mb-3 block">👑 Included Management Suite</span>
+          <h2 class="font-serif-title text-4xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
+            Royal Admin <br/>& Analytics Dashboard
+          </h2>
+          <p class="text-[#a69888] text-base leading-relaxed mb-8">
+            Complete business operations suite built-in. Manage salon calendars, stylist performance metrics, stock inventory, client dossiers, and staff commission payouts.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-[#14120e] border border-[#2a2318]">
+              <div class="w-10 h-10 rounded-xl bg-[#2a2318] flex items-center justify-center text-[#d4af37] font-bold text-lg">📊</div>
+              <div>
+                <h4 class="font-bold text-white text-base">Financials & Commission Payouts</h4>
+                <p class="text-[#a69888] text-xs">Real-time revenue reports, inventory alerts & stylist KPI trackers.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-[#14120e] border border-[#2a2318]">
+              <div class="w-10 h-10 rounded-xl bg-[#2a2318] flex items-center justify-center text-[#d4af37] font-bold text-lg">🔒</div>
+              <div>
+                <h4 class="font-bold text-white text-base">Security & Audit Log Logs</h4>
+                <p class="text-[#a69888] text-xs">Enterprise role-based permissions, backup manager & audit history.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="glass-card rounded-3xl p-4 border border-[#d4af37]/30 shadow-2xl">
+            <img src="/assets/screenshot_02_admin_suite_1785402353388.png" alt="Royal Admin Suite Showcase" class="w-full h-auto rounded-2xl object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE DEVICE SIMULATOR DEMO CTA -->
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <div class="glass-card rounded-3xl p-8 sm:p-14 text-center border-2 border-[#d4af37]/40 relative overflow-hidden shadow-2xl">
+      <div class="max-w-2xl mx-auto relative z-10">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold text-[#d4af37] bg-[#2a2318] uppercase tracking-widest mb-4">Live Browser Simulator</span>
+        <h3 class="font-serif-title text-3xl sm:text-5xl font-extrabold text-white mb-4">Test Drive All 45+ Screens Now</h3>
+        <p class="text-[#a69888] text-base mb-8">Experience the smooth animations, responsive frame drawer, and dark mode luxury styling live in your browser.</p>
+        <a href="/" target="_blank" class="inline-flex items-center gap-3 px-10 py-4 rounded-full font-extrabold text-lg text-black gold-gradient gold-glow hover:scale-105 transition-transform cursor-pointer">
+          <i class="fa-solid fa-[#0a0908] fa-[#0a0908] fa-up-right-from-square text-black"></i>
+          <span>Launch Interactive Demo</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING & BUY SECTION -->
+  <section id="pricing" class="max-w-4xl mx-auto px-6 pb-24">
+    <div class="bg-gradient-to-b from-[#14120e] via-[#1a1611] to-[#0a0908] border-2 border-[#d4af37] rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden shadow-2xl">
+      
+      <!-- DISCOUNT RIBBON -->
+      <div class="bg-[#d4af37] text-black font-black text-xs tracking-widest uppercase py-1.5 px-8 inline-block rounded-full mb-6 shadow-xl">
+        🔥 Special Launch Offer — Save $16 Today
+      </div>
+
+      <h3 class="font-serif-title text-3xl sm:text-5xl font-extrabold text-white mb-3">Get Instant Source Access</h3>
+      <p class="text-[#a69888] text-sm sm:text-base max-w-xl mx-auto mb-8">Includes complete React 19 source code, TypeScript configuration, full assets bundle & HTML documentation.</p>
+
+      <div class="flex items-center justify-center gap-4 my-6">
+        <span class="text-3xl font-semibold text-[#a69888] line-through opacity-60">$40</span>
+        <div class="text-6xl font-black gold-text">
           $<span data-gumroad-field="price">24</span> <span class="text-sm font-normal text-[#a69888]">USD</span>
         </div>
       </div>
 
-      <p class="text-xs text-[#a69888] mb-8">One-time purchase • Lifetime updates • Commercial project license</p>
+      <p class="text-xs text-[#a69888] mb-10">One-time purchase • Lifetime updates • Commercial license</p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-full font-bold text-base text-white border border-[#c89b3c] hover:bg-[#c89b3c]/10 active:scale-95 transition-all duration-200 cursor-pointer">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
+        <a href="/" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-full font-bold text-base text-white border border-[#d4af37] hover:bg-[#d4af37]/10 transition-all cursor-pointer">
           📱 Try Live Demo
         </a>
-        <a data-gumroad-action="buy" href="https://gumroad.com" target="_blank" class="w-full sm:w-auto px-12 py-4 rounded-full font-bold text-lg text-white gold-gradient shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer">
-          Get SalonHub Now — $24
+        <a data-gumroad-action="buy" href="https://gumroad.com" target="_blank" class="w-full sm:w-auto px-10 py-4 rounded-full font-extrabold text-lg text-black gold-gradient gold-glow hover:scale-105 transition-transform cursor-pointer">
+          Buy Now on Gumroad — $24
         </a>
       </div>
     </div>
   </section>
 
-  <footer class="border-t border-[#342b1f] py-8 text-center text-xs text-[#a69888]">
-    <p>&copy; 2026 SalonHub Template. All rights reserved.</p>
+  <!-- FOOTER -->
+  <footer class="border-t border-[#2a2318] py-10 text-center text-xs text-[#a69888]">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-serif-title font-bold text-white text-base">SalonHub Template</span>
+      </div>
+      <p>&copy; 2026 SalonHub UI Kit. Built with React 19 & Tailwind CSS.</p>
+    </div>
   </footer>
 
 </body>
