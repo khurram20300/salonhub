@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SalonHub - Premium React 19 App Template & UI Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c89b3c;
+      --gold-dark: #7b5900;
+      --bg: #14120e;
+      --card-bg: #1f1b14;
+      --card-border: #342b1f;
+      --text: #f6ece1;
+      --text-muted: #a69888;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+    
+    .hero {
+      background: radial-gradient(circle at top, #342817 0%, var(--bg) 70%);
+      padding: 80px 20px 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    
+    .btn-buy {
+      display: inline-block;
+      background: linear-gradient(135deg, #c89b3c 0%, #7b5900 100%);
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(200, 155, 60, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-buy:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(200, 155, 60, 0.4);
+    }
+    
+    .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+    
+    .preview-banner {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      margin-bottom: 60px;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 30px;
+      border-radius: 16px;
+    }
+    .feature-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    
+    .pricing-box {
+      background: linear-gradient(135deg, #241f17 0%, #17140f 100%);
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      padding: 50px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+    .pricing-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-size: 54px;
+      font-weight: 800;
+      color: var(--gold);
+      margin: 20px 0;
+    }
+    .price span { font-size: 18px; color: var(--text-muted); font-weight: 400; }
+    
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div style="background: linear-gradient(135deg, #7b5900, #c89b3c); color: #fff; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 20px; display: inline-block; margin-bottom: 16px;">
+      🔥 SPECIAL LAUNCH OFFER: SAVE 40% TODAY
+    </div>
+    <br/>
+    <span class="badge">React 19 + TypeScript + Tailwind CSS</span>
+    <h1>SalonHub App Template</h1>
+    <p>The ultimate luxury salon, spa & barbershop booking app kit with 45+ interactive screens & Royal Admin Suite.</p>
+    
+    <div style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 20px;">
+      <a href="/" target="_blank" style="display: inline-block; border: 2px solid var(--gold); color: #fff; font-size: 16px; font-weight: 600; padding: 14px 30px; border-radius: 40px; text-decoration: none;">
+        📱 Live App Preview
+      </a>
+      <a href="https://gumroad.com" class="btn-buy" target="_blank">
+        Buy Now on Gumroad — <span style="text-decoration: line-through; opacity: 0.7; font-size: 15px;">$40</span> <strong>$24</strong>
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+    <img src="../envato-assets/gumroad_cover_1280x720_1785403233759.png" alt="SalonHub Showcase" class="preview-banner" />
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>📱 45+ Interactive Screens</h3>
+        <p>Complete client booking flow, barber portfolio, service menus, time slot selection, checkout, ratings, and trend feed.</p>
+      </div>
+      <div class="feature-card">
+        <h3>👑 Royal Admin Suite</h3>
+        <p>Full management dashboard included: Appointments Calendar, Client CRM Dossier, Stock Inventory, Financials, and Staff Payouts.</p>
+      </div>
+      <div class="feature-card">
+        <h3>💻 Mobile Simulator Frame</h3>
+        <p>Built-in interactive device simulator with screen drawer for presenting stunning live demos to your clients.</p>
+      </div>
+    </div>
+
+    <div class="pricing-box">
+      <div style="background: var(--gold); color: #14120e; font-size: 12px; font-weight: 800; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 12px; text-transform: uppercase;">
+        Limited Time Launch Discount
+      </div>
+      <h2>Get Full Source Code Access</h2>
+      <p style="color: var(--text-muted);">Instant download package includes source code, assets & documentation.</p>
+      
+      <div style="margin: 20px 0; display: flex; align-items: center; justify-content: center; gap: 12px;">
+        <span style="font-size: 28px; text-decoration: line-through; color: var(--text-muted); font-weight: 600;">$40</span>
+        <div class="price" style="margin: 0;">$24 <span>USD</span></div>
+      </div>
+
+      <div style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 24px;">
+        <a href="/" target="_blank" style="display: inline-block; border: 1px solid var(--gold); color: #fff; font-size: 15px; padding: 14px 28px; border-radius: 40px; text-decoration: none;">
+          📱 Try Live Demo
+        </a>
+        <a href="https://gumroad.com" class="btn-buy" target="_blank">Buy Now on Gumroad — $24</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 SalonHub Template. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

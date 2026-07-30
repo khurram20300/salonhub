@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SalonHub - Documentation & Setup Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7b5900;
+      --primary-light: #c89b3c;
+      --bg: #fff8f2;
+      --card-bg: #ffffff;
+      --text: #1f1b14;
+      --text-muted: #6b5e50;
+      --border: #f0e4d2;
+      --code-bg: #1c1813;
+      --code-text: #ffd591;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+    .header { background: linear-gradient(135deg, #1c1813 0%, #342817 100%); color: #ffffff; padding: 40px 20px; text-align: center; border-bottom: 4px solid var(--primary-light); }
+    .header h1 { font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 8px; color: #ffdea4; }
+    .header p { font-size: 16px; color: #d2c5b1; max-width: 600px; margin: 0 auto; }
+    .badge { display: inline-block; background: var(--primary); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-top: 15px; }
+    .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+    .grid { display: grid; grid-template-columns: 240px 1fr; gap: 30px; }
+    .sidebar { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border); position: sticky; top: 20px; height: fit-content; }
+    .sidebar h3 { font-size: 14px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; letter-spacing: 1px; }
+    .sidebar ul { list-style: none; }
+    .sidebar li { margin-bottom: 8px; }
+    .sidebar a { color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .sidebar a:hover { color: var(--primary); }
+    .content section { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 24px; box-shadow: 0 4px 12px rgba(123, 89, 0, 0.03); }
+    .content h2 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); margin-bottom: 16px; border-bottom: 2px solid var(--bg); padding-bottom: 8px; }
+    .content h3 { font-size: 18px; margin: 20px 0 10px; color: var(--text); }
+    .content p, .content ul { margin-bottom: 16px; font-size: 14px; color: var(--text-muted); }
+    .content ul { padding-left: 20px; }
+    .content li { margin-bottom: 6px; }
+    pre { background: var(--code-bg); color: var(--code-text); padding: 16px; border-radius: 8px; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 13px; margin: 12px 0 16px; }
+    code { background: #f4ea6; color: var(--primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: monospace; }
+    .feature-tag { display: inline-block; background: #fdf6ec; color: var(--primary); border: 1px solid #f2e3cd; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-right: 6px; margin-bottom: 6px; font-weight: 500; }
+    .footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1>SalonHub Template Documentation</h1>
+    <p>Official Setup Guide, Customization Reference & API Integration Instructions</p>
+    <span class="badge">React 19 + TypeScript + Vite + TailwindCSS</span>
+  </header>
+
+  <div class="container">
+    <div class="grid">
+      <nav class="sidebar">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#introduction">1. Introduction</a></li>
+          <li><a href="#quick-start">2. Quick Start</a></li>
+          <li><a href="#structure">3. Folder Structure</a></li>
+          <li><a href="#customization">4. Customizing Theme & Fonts</a></li>
+          <li><a href="#mock-data">5. Updating Data & Images</a></li>
+          <li><a href="#api-integration">6. Connecting Backend API</a></li>
+          <li><a href="#support">7. Support & Credits</a></li>
+        </ul>
+      </nav>
+
+      <main class="content">
+        <section id="introduction">
+          <h2>1. Introduction</h2>
+          <p>Thank you for purchasing <strong>SalonHub</strong>! SalonHub is a premier, luxury-tier mobile web app template designed specifically for high-end salons, barbershops, beauty parlors, and spa centers.</p>
+          <p>Key highlights of this template:</p>
+          <div>
+            <span class="feature-tag">30+ Screen Templates</span>
+            <span class="feature-tag">Client App & Royal Admin Suite</span>
+            <span class="feature-tag">Interactive Mobile Device Simulator</span>
+            <span class="feature-tag">Full TypeScript Typing</span>
+            <span class="feature-tag">100% Responsive Design</span>
+          </div>
+        </section>
+
+        <section id="quick-start">
+          <h2>2. Quick Start</h2>
+          <p>Follow these steps to run the application locally on your machine:</p>
+
+          <h3>Prerequisites</h3>
+          <ul>
+            <li>Node.js (v18.0.0 or higher recommended)</li>
+            <li>npm or yarn package manager</li>
+          </ul>
+
+          <h3>Installation</h3>
+          <pre># 1. Extract the downloaded zip file & navigate to directory
+cd salonhub
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the development server
+npm run dev
+
+# 4. Open in browser
+http://localhost:3000</pre>
+
+          <h3>Building for Production</h3>
+          <pre># Create optimized production build
+npm run build
+
+# Preview production build locally
+npm run preview</pre>
+        </section>
+
+        <section id="structure">
+          <h2>3. Project Folder Structure</h2>
+          <pre>salonhub/
+├── documentation/          # HTML Documentation (This guide)
+├── public/                 # Static assets & favicon
+├── src/
+│   ├── components/         # Reusable UI components (Header, Nav, Simulator Frame)
+│   ├── data/               # Mock data sources (salons, barbers, bookings, feed)
+│   ├── screens/            # 30+ Client & Admin Screen Views
+│   │   └── admin/          # Royal Admin Suite Dashboard screens
+│   ├── App.tsx             # Main routing & state controller
+│   ├── index.css           # Design tokens, Google Fonts & Tailwind definitions
+│   ├── main.tsx            # React application entry point
+│   └── types.ts            # Complete TypeScript interfaces
+├── package.json            # Project dependencies & npm scripts
+├── tsconfig.json           # TypeScript configuration
+└── vite.config.ts          # Vite build configuration</pre>
+        </section>
+
+        <section id="customization">
+          <h2>4. Customizing Theme & Fonts</h2>
+          <p>All core theme tokens, fonts, and glassmorphism utilities are defined in <code>src/index.css</code>.</p>
+
+          <h3>Primary Gold Color Accent</h3>
+          <p>To change the primary gold brand color, replace the hex values in <code>src/index.css</code> and Tailwind class usages:</p>
+          <pre>/* Main Gold Accent */
+#7b5900 -> Your Primary Color
+
+/* Light Gold Highlight */
+#c89b3c -> Your Secondary Color</pre>
+
+          <h3>Typography</h3>
+          <p>The app imports <strong>Playfair Display</strong> for headings and <strong>Poppins</strong> for body text via Google Fonts in <code>index.html</code>.</p>
+        </section>
+
+        <section id="mock-data">
+          <h2>5. Updating Data & Images</h2>
+          <p>All salon listings, barber profiles, services, client bookings, and feed posts are stored cleanly in <code>src/data/mockData.ts</code>.</p>
+          <p>Simply update or replace the objects in <code>mockSalons</code>, <code>mockBarbers</code>, or <code>mockBookings</code> to personalize the content for your client.</p>
+        </section>
+
+        <section id="api-integration">
+          <h2>6. Connecting Real Backend API</h2>
+          <p>SalonHub uses standard TypeScript state management in <code>src/App.tsx</code>. To connect a REST API, GraphQL, Supabase, or Firebase backend:</p>
+          <ul>
+            <li>Replace imports from <code>./data/mockData</code> with <code>useEffect</code> fetch calls or React Query / Axios calls.</li>
+            <li>Use the TypeScript interfaces defined in <code>src/types.ts</code> to ensure exact data structure compliance.</li>
+          </ul>
+        </section>
+
+        <section id="support">
+          <h2>7. Support & Credits</h2>
+          <p>If you have any questions or need assistance, please feel free to reach out via our Envato CodeCanyon profile page.</p>
+          <ul>
+            <li><strong>Icons:</strong> Google Material Symbols Outlined</li>
+            <li><strong>Typography:</strong> Google Fonts (Playfair Display & Poppins)</li>
+            <li><strong>Framework:</strong> React 19 & Vite</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 SalonHub Template. Created for Envato CodeCanyon. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

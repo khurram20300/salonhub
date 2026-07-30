@@ -1,0 +1,6 @@
+{
+  "name": "SalonHub",
+  "description": "Luxury salon and barber booking experience with real-time slot selection, artisan portfolios, and appointment management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
